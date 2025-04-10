@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greywater Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+      color: #5c4326;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .logo img {
+      max-width: 150px;
+      height: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #5c4326;
+      margin-bottom: 2rem;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.25rem;
+      font-weight: bold;
+      color: #5c4326;
+    }
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #c8e6c9;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #f9fbe7;
+      color: #5c4326;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #EC19C0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c0169f;
+    }
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e8f5e9;
+      border-left: 5px solid #EC19C0;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      color: #5c4326;
+      line-height: 1.6;
+    }
+    .result strong {
+      color: #402e1f;
+    }
+    .note {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #6e5b44;
+      background-color: #f1f8e9;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #EC19C0;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #6e5b44;
+    }
+    .footer a {
+      color: #EC19C0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/welcometherain/assets/main/perm%20lab%20brown2.png" alt="Perm Lab Logo">
+    </div>
+    <h1>Greywater Calculator</h1>
+    <label for="people">Number of people in household:</label>
+    <input type="number" id="people" placeholder="e.g. 4">
+
+    <label for="showers">Showers per person per week:</label>
+    <input type="number" id="showers" placeholder="e.g. 7">
+
+    <label for="shower-minutes">Average shower length (minutes):</label>
+    <input type="number" id="shower-minutes" placeholder="e.g. 7">
+
+    <label for="washing">Loads of laundry per week:</label>
+    <input type="number" id="washing" placeholder="e.g. 5">
+
+    <label for="baths">Baths per week:</label>
+    <input type="number" id="baths" placeholder="e.g. 2">
+
+    <button onclick="calculateGreywater()">Calculate</button>
+
+    <div class="result" id="result"></div>
+    <div class="note">
+      💡 This calculator provides estimates for typical greywater-generating sources. If you’re using a dishwasher, taking baths, or want more precise estimates, reach out to us at <a href="mailto:hello@thepermaculturelab.com">hello@thepermaculturelab.com</a>.
+    </div>
+    <div class="footer">
+      🔗 <a href="https://www.thepermaculturelab.com/greywater" target="_blank">Back to the Permaculture Lab</a>
+    </div>
+  </div>
+
+  <script>
+    function calculateGreywater() {
+      const people = parseFloat(document.getElementById('people').value);
+      const showersPerWeek = parseFloat(document.getElementById('showers').value);
+      const showerMinutes = parseFloat(document.getElementById('shower-minutes').value);
+      const laundryLoads = parseFloat(document.getElementById('washing').value);
+      const bathsPerWeek = parseFloat(document.getElementById('baths').value);
+
+      if (isNaN(people) || isNaN(showersPerWeek) || isNaN(showerMinutes) || isNaN(laundryLoads) || isNaN(bathsPerWeek)) {
+        document.getElementById('result').textContent = 'Please fill out all fields correctly.';
+        return;
+      }
+
+      const showerFlowRate = 2.1;
+      const laundryWaterPerLoad = 25;
+      const bathroomSinkPerPersonPerDay = 2.5;
+      const kitchenSinkPerPersonPerDay = 5;
+      const bathWaterPerBath = 40;
+
+      const weeklyShowerWater = people * showersPerWeek * showerMinutes * showerFlowRate;
+      const dailyShowerWater = weeklyShowerWater / 7;
+
+      const weeklyLaundryWater = laundryLoads * laundryWaterPerLoad;
+      const dailyLaundryWater = weeklyLaundryWater / 7;
+
+      const weeklyBathWater = bathsPerWeek * people * bathWaterPerBath;
+      const dailyBathWater = weeklyBathWater / 7;
+
+      const dailyBathroomSinkWater = people * bathroomSinkPerPersonPerDay;
+      const dailyKitchenSinkWater = people * kitchenSinkPerPersonPerDay;
+
+      const totalDailyGreywater = dailyShowerWater + dailyLaundryWater + dailyBathroomSinkWater + dailyKitchenSinkWater + dailyBathWater;
+      const totalMonthlyGreywater = totalDailyGreywater * 30;
+
+      const monthlyShowerWater = dailyShowerWater * 30;
+      const monthlyLaundryWater = dailyLaundryWater * 30;
+      const monthlyBathWater = dailyBathWater * 30;
+      const monthlyBathroomSinkWater = dailyBathroomSinkWater * 30;
+      const monthlyKitchenSinkWater = dailyKitchenSinkWater * 30;
+
+      document.getElementById('result').innerHTML = `
+        <div>
+          <strong>Estimated Daily Greywater Output</strong><br>
+          • Showers: ${dailyShowerWater.toFixed(1)} gallons<br>
+          • Laundry: ${dailyLaundryWater.toFixed(1)} gallons<br>
+          • Bathroom Sinks: ${dailyBathroomSinkWater.toFixed(1)} gallons<br>
+          • Kitchen Sink: ${dailyKitchenSinkWater.toFixed(1)} gallons<br>
+          • Baths: ${dailyBathWater.toFixed(1)} gallons<br>
+          <br>
+          <strong>Total: ${totalDailyGreywater.toFixed(1)} gallons</strong>
+        </div>
+        <br>
+        <div>
+          <strong>Estimated Monthly Greywater Output</strong><br>
+          • Showers: ${monthlyShowerWater.toFixed(1)} gallons<br>
+          • Laundry: ${monthlyLaundryWater.toFixed(1)} gallons<br>
+          • Bathroom Sinks: ${monthlyBathroomSinkWater.toFixed(1)} gallons<br>
+          • Kitchen Sink: ${monthlyKitchenSinkWater.toFixed(1)} gallons<br>
+          • Baths: ${monthlyBathWater.toFixed(1)} gallons<br>
+          <br>
+          <strong>Total: ${totalMonthlyGreywater.toFixed(1)} gallons</strong>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
