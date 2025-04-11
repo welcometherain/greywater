@@ -7,6 +7,7 @@
   <title>Greywater Calculator | The Permaculture Lab</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* Custom CSS styles for output and toggle button */
     .output-card {
       background: #f9f8f6;
       padding: 1.5rem;
@@ -34,14 +35,29 @@
       color: #ec1c9c;
     }
 
+    /* Styling for the toggle button */
+    #toggle-advanced {
+      background-color: #ec1c9c;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Default style for the advanced settings section */
     .advanced-settings {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
+      display: none;
+      margin-top: 1rem;
     }
 
     .advanced-settings.open {
-      max-height: 1000px;
+      display: block;
+    }
+
+    .info-text {
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
@@ -53,7 +69,7 @@
     <h1>Greywater Calculator</h1>
 
     <p class="intro">
-     Discover how much reusable greywater your household produces from sinks, showers, and washing machines, offering a valuable resource for irrigation and other non-potable needs.
+      Discover how much reusable greywater your household produces from sinks, showers, and washing machines, offering a valuable resource for irrigation and other non-potable needs.
     </p>
 
     <form id="greywater-form">
