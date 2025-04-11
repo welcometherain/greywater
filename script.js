@@ -37,11 +37,11 @@ document.getElementById("greywater-form").addEventListener("submit", function (e
   document.getElementById("result").innerHTML = `
     <div class="output-box">
       <h2>Estimated Greywater Output</h2>
-      <p><strong>Showers:</strong> ${formatNumber(showerWeekly)} gallons/week | ${formatNumber(showerYearly)} gallons/year</p>
-      <p><strong>Laundry:</strong> ${formatNumber(laundryWeekly)} gallons/week | ${formatNumber(laundryYearly)} gallons/year</p>
-      <p><strong>Baths:</strong> ${formatNumber(bathWeekly)} gallons/week | ${formatNumber(bathYearly)} gallons/year</p>
-      <p><strong>Bathroom Sinks:</strong> ${formatNumber(bathroomSinkWeekly)} gallons/week | ${formatNumber(bathroomSinkYearly)} gallons/year</p>
-      <p><strong>Kitchen Sinks:</strong> ${formatNumber(kitchenSinkWeekly)} gallons/week | ${formatNumber(kitchenSinkYearly)} gallons/year</p>
+      <p>🚿 <strong>Showers:</strong> ${formatNumber(showerWeekly)} gallons/week | ${formatNumber(showerYearly)} gallons/year</p>
+      <p>🧺 <strong>Laundry:</strong> ${formatNumber(laundryWeekly)} gallons/week | ${formatNumber(laundryYearly)} gallons/year</p>
+      <p>🛁 <strong>Baths:</strong> ${formatNumber(bathWeekly)} gallons/week | ${formatNumber(bathYearly)} gallons/year</p>
+      <p>🪥 <strong>Bathroom Sinks:</strong> ${formatNumber(bathroomSinkWeekly)} gallons/week | ${formatNumber(bathroomSinkYearly)} gallons/year</p>
+      <p>🍽️ <strong>Kitchen Sinks:</strong> ${formatNumber(kitchenSinkWeekly)} gallons/week | ${formatNumber(kitchenSinkYearly)} gallons/year</p>
       <hr>
       <p style="color: #EC19C0;"><strong>Total Weekly:</strong> ${formatNumber(weeklyTotal)} gallons</p>
       <p style="color: #EC19C0;"><strong>Total Yearly:</strong> ${formatNumber(yearlyTotal)} gallons</p>
@@ -64,4 +64,3 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = "Customize Water Flow Rates";
   }
 });
-
