@@ -1,11 +1,10 @@
 /* Base styles for the layout */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: #e1eff5; /* Restoring the light blue background color */
   color: #333;
   margin: 0;
   padding: 0;
-  background-color: #e1eff5; /* Restoring the background blue color */
 }
 
 .container {
@@ -24,6 +23,45 @@ h1, h2 {
   color: #555;
 }
 
+/* Button Styling */
+button {
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+  display: block;
+  width: 100%;
+  max-width: 400px; /* Max width for buttons */
+  margin: 1rem auto; /* Centers the button */
+}
+
+/* The "Calculate" button */
+button#calculate {
+  background-color: #ec1c9c; /* Pink for the "Calculate" button */
+  color: white;
+  font-size: 1.3rem; /* Larger font */
+  padding: 1.5rem 3rem; /* Larger padding for more prominence */
+  text-align: center;
+}
+
+button#calculate:hover {
+  background-color: #d0167d;
+}
+
+/* The "Customize Water Flow Rates" button */
+#toggle-advanced {
+  background-color: #4a3c2f; /* Brown for the toggle button */
+  color: white;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+#toggle-advanced:hover {
+  background-color: #3d2b22;
+}
+
+/* Form fields */
 .form-group {
   margin-bottom: 1rem;
 }
@@ -41,56 +79,14 @@ input[type="number"] {
   font-size: 1rem;
 }
 
-button {
-  padding: 1rem 2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  font-size: 1.1rem;
-  display: block;
-  margin: 0 auto;
-  width: 100%; /* Makes the button take full width */
-}
-
-/* Customize the "Calculate" button */
-button#calculate {
-  background-color: #ec1c9c; /* Pink for the "Calculate" button */
-  color: white;
-  font-size: 1.3rem; /* Larger font */
-  padding: 1.5rem 3rem; /* Larger padding for more prominence */
-}
-
-button#calculate:hover {
-  background-color: #d0167d;
-}
-
-/* Customize the "Customize Water Flow Rates" button */
-#toggle-advanced {
-  background-color: #4a3c2f; /* Brown for the toggle button */
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-  display: block;
-  margin: 0 auto;
-  width: auto; /* Button width to fit content */
-}
-
-#toggle-advanced:hover {
-  background-color: #3d2b22;
-}
-
-/* Advanced settings toggle button */
+/* Advanced settings section */
 .advanced-toggle {
   margin-top: 1rem;
 }
 
-/* Styling for the advanced settings section */
 .advanced-settings {
-  margin-top: 1rem;
   display: none;
+  margin-top: 20px;
 }
 
 .advanced-settings.open {
@@ -101,7 +97,6 @@ button#calculate:hover {
   margin-bottom: 1rem;
 }
 
-/* Styling for the input fields in advanced settings */
 .advanced-settings input[type="number"] {
   width: 100%;
   padding: 8px;
@@ -111,7 +106,7 @@ button#calculate:hover {
   font-size: 1rem;
 }
 
-/* Styling for the output card */
+/* Output Card */
 .output-card {
   background: #fff;
   border-radius: 8px;
@@ -139,7 +134,7 @@ button#calculate:hover {
   color: #ec1c9c;
 }
 
-/* Styling for the assumptions section */
+/* Assumptions Section */
 .assumptions {
   background: #f9f8f6;
   padding: 15px;
@@ -162,7 +157,7 @@ button#calculate:hover {
   margin-bottom: 0.5rem;
 }
 
-/* Footer and other content */
+/* Footer and Note */
 .note {
   margin-top: 30px;
   font-size: 0.9rem;
@@ -193,7 +188,12 @@ button#calculate:hover {
   text-decoration: underline;
 }
 
-/* Responsiveness for smaller screens */
+/* Styling for required field asterisks */
+.required {
+  color: #ec1c9c; /* Pink for the required asterisks */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
     width: 100%;
@@ -212,9 +212,4 @@ button#calculate:hover {
     width: 100%;
     font-size: 1.1rem;
   }
-}
-
-/* Styling for required field asterisks (back to pink) */
-.required {
-  color: #ec1c9c; /* Restoring pink for the required asterisks */
 }
