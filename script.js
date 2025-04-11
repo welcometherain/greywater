@@ -1,64 +1,60 @@
-document.getElementById('greywater-form').addEventListener('submit', function (e) {
+document.getElementById('greywater-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const people = parseInt(document.getElementById('people').value) || 0;
-  const showersPerWeek = parseInt(document.getElementById('showers').value) || 0;
-  const showerMinutes = parseFloat(document.getElementById('shower-minutes').value) || 0;
-  const laundryLoads = parseInt(document.getElementById('washing').value) || 0;
-  const baths = parseInt(document.getElementById('baths').value) || 0;
+  const people = parseInt(document.getElementById('people').value);
+  const showers = parseInt(document.getElementById('showers').value);
+  const showerMinutes = parseFloat(document.getElementById('shower-minutes').value);
+  const washing = parseInt(document.getElementById('washing').value);
+  const baths = parseInt(document.getElementById('baths').value);
 
-  const showerFlow = parseFloat(document.getElementById('shower-flow').value) || 2.1;
-  const laundryUsage = parseFloat(document.getElementById('laundry-usage').value) || 25;
-  const bathUsage = parseFloat(document.getElementById('bath-usage').value) || 40;
-  const bathroomSinkUsage = parseFloat(document.getElementById('bathroom-sink-usage').value) || 2.5;
-  const kitchenSinkUsage = parseFloat(document.getElementById('kitchen-sink-usage').value) || 5;
+  const showerFlow = parseFloat(document.getElementById('shower-flow').value);
+  const laundryUsage = parseFloat(document.getElementById('laundry-usage').value);
+  const bathUsage = parseFloat(document.getElementById('bath-usage').value);
+  const bathroomSink = parseFloat(document.getElementById('bathroom-sink-usage').value);
+  const kitchenSink = parseFloat(document.getElementById('kitchen-sink-usage').value);
 
-  // Calculations
-  const showerWaterWeekly = people * showersPerWeek * showerMinutes * showerFlow;
-  const laundryWaterWeekly = laundryLoads * laundryUsage;
-  const bathWaterWeekly = baths * bathUsage;
-  const bathroomSinkWeekly = people * 7 * bathroomSinkUsage;
-  const kitchenSinkWeekly = people * 7 * kitchenSinkUsage;
+  const totalShowers = showers * people;
+  const showerWater = totalShowers * showerMinutes * showerFlow;
 
-  const totalWeekly = showerWaterWeekly + laundryWaterWeekly + bathWaterWeekly + bathroomSinkWeekly + kitchenSinkWeekly;
-  const totalYearly = totalWeekly * 52;
+  const laundryWater = washing * laundryUsage;
+  const bathWater = baths * bathUsage;
 
-  const format = (n) => n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  const dailySinkWater = (bathroomSink + kitchenSink) * people;
+  const weeklySinkWater = dailySinkWater * 7;
 
-  const output = `
-    <h2>Your Weekly Greywater Estimate</h2>
+  const weeklyTotal = showerWater + laundryWater + bathWater + weeklySinkWater;
+  const dailyAverage = weeklyTotal / 7;
+  const yearlyTotal = weeklyTotal * 52;
+
+  const result = `
+    <h2>Greywater Estimates</h2>
     <ul class="output-list">
-      <li><strong>Showers:</strong> ${format(showerWaterWeekly)} gallons/week (${format(showerWaterWeekly * 52)} gallons/year)</li>
-      <li><strong>Laundry:</strong> ${format(laundryWaterWeekly)} gallons/week (${format(laundryWaterWeekly * 52)} gallons/year)</li>
-      <li><strong>Baths:</strong> ${format(bathWaterWeekly)} gallons/week (${format(bathWaterWeekly * 52)} gallons/year)</li>
-      <li><strong>Bathroom Sinks:</strong> ${format(bathroomSinkWeekly)} gallons/week (${format(bathroomSinkWeekly * 52)} gallons/year)</li>
-      <li><strong>Kitchen Sinks:</strong> ${format(kitchenSinkWeekly)} gallons/week (${format(kitchenSinkWeekly * 52)} gallons/year)</li>
+      <li><strong>Shower water per week:</strong> ${showerWater.toFixed(1)} gallons</li>
+      <li><strong>Laundry water per week:</strong> ${laundryWater.toFixed(1)} gallons</li>
+      <li><strong>Bath water per week:</strong> ${bathWater.toFixed(1)} gallons</li>
+      <li><strong>Sink water per week:</strong> ${weeklySinkWater.toFixed(1)} gallons</li>
     </ul>
-    <div class="total-output">Total Weekly: ${format(totalWeekly)} gallons<br>Total Yearly: ${format(totalYearly)} gallons</div>
+    <p class="total-output">Total greywater per week: <strong>${weeklyTotal.toFixed(1)} gallons</strong></p>
+    <p class="total-output">Average per day: <strong>${dailyAverage.toFixed(1)} gallons</strong></p>
+    <p class="total-output">Estimated per year: <strong>${yearlyTotal.toFixed(0)} gallons</strong></p>
   `;
+  document.getElementById('result').innerHTML = result;
 
   const assumptions = `
-    <div class="output-card" style="margin-top: 1.5rem;">
-      <h3>Current Assumptions</h3>
-      <ul class="output-list">
-        <li><strong>Shower Flow Rate:</strong> ${showerFlow} gallons/minute</li>
-        <li><strong>Laundry per Load:</strong> ${laundryUsage} gallons</li>
-        <li><strong>Bath per Use:</strong> ${bathUsage} gallons</li>
-        <li><strong>Bathroom Sink:</strong> ${bathroomSinkUsage} gallons/person/day</li>
-        <li><strong>Kitchen Sink:</strong> ${kitchenSinkUsage} gallons/person/day</li>
-      </ul>
-      <p style="font-size: 0.95rem; margin-top: 0.5rem; color: #6b5c4c;">
-        You can change these values in the "Customize Water Flow Rates" section above.
-      </p>
-    </div>
+    <h3>Assumptions</h3>
+    <ul>
+      <li>Shower Flow Rate: ${showerFlow} gal/min</li>
+      <li>Laundry: ${laundryUsage} gal/load</li>
+      <li>Baths: ${bathUsage} gal/bath</li>
+      <li>Bathroom Sink: ${bathroomSink} gal/person/day</li>
+      <li>Kitchen Sink: ${kitchenSink} gal/person/day</li>
+    </ul>
+    <p>Change these values using the <strong>Customize Water Flow Rates</strong> button above.</p>
   `;
-
-  document.getElementById('result').innerHTML = output;
   document.getElementById('assumptions').innerHTML = assumptions;
 });
-// Toggle Advanced Settings
+
 document.getElementById('toggle-advanced').addEventListener('click', function () {
-  const advancedSection = document.getElementById('advanced-settings');
-  const isVisible = advancedSection.style.display === 'block';
-  advancedSection.style.display = isVisible ? 'none' : 'block';
+  const settings = document.getElementById('advanced-settings');
+  settings.classList.toggle('open');
 });
