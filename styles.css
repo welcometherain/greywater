@@ -119,3 +119,34 @@ button:hover {
   color: red;
   margin-left: 4px;
 }
+/* Add to your existing styles.css file */
+
+.advanced-settings {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  max-height: 0;
+}
+
+.advanced-settings.open {
+  display: block;
+  max-height: 1000px; /* Set a large value to allow content expansion */
+}
+
+.advanced-toggle button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #4a3c2f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.advanced-toggle button:hover {
+  background-color: #7d654e;
+}
+
