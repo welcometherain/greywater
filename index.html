@@ -33,6 +33,16 @@
       margin-top: 1rem;
       color: #ec1c9c;
     }
+
+    .advanced-settings {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .advanced-settings.open {
+      max-height: 1000px;
+    }
   </style>
 </head>
 <body>
