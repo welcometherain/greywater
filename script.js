@@ -1,6 +1,7 @@
 document.getElementById('greywater-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
+  // Get values from the form
   const people = parseInt(document.getElementById('people').value);
   const showers = parseInt(document.getElementById('showers').value);
   const showerMinutes = parseFloat(document.getElementById('shower-minutes').value);
@@ -13,6 +14,7 @@ document.getElementById('greywater-form').addEventListener('submit', function(e)
   const bathroomSink = parseFloat(document.getElementById('bathroom-sink-usage').value);
   const kitchenSink = parseFloat(document.getElementById('kitchen-sink-usage').value);
 
+  // Calculate weekly water usage for each source
   const totalShowers = showers * people;
   const showerWater = totalShowers * showerMinutes * showerFlow;
 
@@ -22,10 +24,12 @@ document.getElementById('greywater-form').addEventListener('submit', function(e)
   const dailySinkWater = (bathroomSink + kitchenSink) * people;
   const weeklySinkWater = dailySinkWater * 7;
 
+  // Calculate total greywater usage
   const weeklyTotal = showerWater + laundryWater + bathWater + weeklySinkWater;
   const dailyAverage = weeklyTotal / 7;
   const yearlyTotal = weeklyTotal * 52;
 
+  // Display the results in the output area
   const result = `
     <h2>Greywater Estimates</h2>
     <ul class="output-list">
@@ -40,6 +44,7 @@ document.getElementById('greywater-form').addEventListener('submit', function(e)
   `;
   document.getElementById('result').innerHTML = result;
 
+  // Display the assumptions section
   const assumptions = `
     <h3>Assumptions</h3>
     <ul>
@@ -54,6 +59,7 @@ document.getElementById('greywater-form').addEventListener('submit', function(e)
   document.getElementById('assumptions').innerHTML = assumptions;
 });
 
+// Toggle for the advanced settings (Customize Water Flow Rates)
 document.getElementById('toggle-advanced').addEventListener('click', function () {
   const settings = document.getElementById('advanced-settings');
   settings.classList.toggle('open');
