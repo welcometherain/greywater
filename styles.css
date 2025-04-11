@@ -6,7 +6,7 @@
   --text-color: #5c4326;
   --text-dark: #402e1f;
   --text-light: #6e5b44;
-  --bg-light: #ecf0f5;
+  --bg-light: #f5e6d3;
   --bg-gradient-1: #e8f4fc;
   --bg-gradient-2: #edf7fe;
   --border-color: #b8d3e8;
@@ -322,3 +322,4 @@ button:hover, button:focus {
     max-width: 120px;
   }
 }
+
