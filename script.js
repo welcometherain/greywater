@@ -1,5 +1,9 @@
 // script.js
 
+function formatNumber(num) {
+  return num.toLocaleString(undefined, { maximumFractionDigits: 1 });
+}
+
 document.getElementById("greywater-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -33,14 +37,14 @@ document.getElementById("greywater-form").addEventListener("submit", function (e
   document.getElementById("result").innerHTML = `
     <div class="output-box">
       <h2>Estimated Greywater Output</h2>
-      <p><strong>Showers:</strong> ${showerWeekly.toFixed(1)} gallons/week | ${showerYearly.toFixed(1)} gallons/year</p>
-      <p><strong>Laundry:</strong> ${laundryWeekly.toFixed(1)} gallons/week | ${laundryYearly.toFixed(1)} gallons/year</p>
-      <p><strong>Baths:</strong> ${bathWeekly.toFixed(1)} gallons/week | ${bathYearly.toFixed(1)} gallons/year</p>
-      <p><strong>Bathroom Sinks:</strong> ${bathroomSinkWeekly.toFixed(1)} gallons/week | ${bathroomSinkYearly.toFixed(1)} gallons/year</p>
-      <p><strong>Kitchen Sinks:</strong> ${kitchenSinkWeekly.toFixed(1)} gallons/week | ${kitchenSinkYearly.toFixed(1)} gallons/year</p>
+      <p><strong>Showers:</strong> ${formatNumber(showerWeekly)} gallons/week | ${formatNumber(showerYearly)} gallons/year</p>
+      <p><strong>Laundry:</strong> ${formatNumber(laundryWeekly)} gallons/week | ${formatNumber(laundryYearly)} gallons/year</p>
+      <p><strong>Baths:</strong> ${formatNumber(bathWeekly)} gallons/week | ${formatNumber(bathYearly)} gallons/year</p>
+      <p><strong>Bathroom Sinks:</strong> ${formatNumber(bathroomSinkWeekly)} gallons/week | ${formatNumber(bathroomSinkYearly)} gallons/year</p>
+      <p><strong>Kitchen Sinks:</strong> ${formatNumber(kitchenSinkWeekly)} gallons/week | ${formatNumber(kitchenSinkYearly)} gallons/year</p>
       <hr>
-      <p style="color: #EC19C0;"><strong>Total Weekly:</strong> ${weeklyTotal.toFixed(1)} gallons</p>
-      <p style="color: #EC19C0;"><strong>Total Yearly:</strong> ${yearlyTotal.toFixed(1)} gallons</p>
+      <p style="color: #EC19C0;"><strong>Total Weekly:</strong> ${formatNumber(weeklyTotal)} gallons</p>
+      <p style="color: #EC19C0;"><strong>Total Yearly:</strong> ${formatNumber(yearlyTotal)} gallons</p>
     </div>
   `;
 
@@ -60,3 +64,4 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = "Customize Water Flow Rates";
   }
 });
+
