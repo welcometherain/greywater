@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
 }
 
-/* Container where the form and output are */
+/* Container styling for the form and results */
 .container {
   background-color: #fdf5e6; /* Light tan background */
   color: #000;
@@ -22,7 +22,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Centered title */
+/* Title for the page */
 h1, h2 {
   text-align: center;
   font-size: 24px;
@@ -69,7 +69,7 @@ button:hover {
   background-color: #c017a5; /* Hover effect */
 }
 
-/* Results box styling */
+/* Results output section */
 .output-box {
   margin-top: 20px;
   padding: 20px;
@@ -80,12 +80,7 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.output-box h3 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-/* Divider line */
+/* Divider line between sections */
 hr {
   border: none;
   height: 1px;
@@ -93,7 +88,7 @@ hr {
   margin: 20px 0;
 }
 
-/* Toggle for advanced settings */
+/* Toggle button for advanced settings */
 #toggle-advanced {
   background: none;
   color: #000;
@@ -104,7 +99,7 @@ hr {
   display: block;
 }
 
-/* Advanced settings area */
+/* Advanced settings styling */
 .advanced-settings {
   background-color: #fff8e1; /* Soft yellow background for advanced settings */
   padding: 20px;
@@ -117,12 +112,7 @@ hr {
   margin-bottom: 15px;
 }
 
-.advanced-settings label {
-  display: block;
-  margin-top: 10px;
-}
-
-/* Result section with commas and emoji */
+/* Results styling */
 .result-text {
   font-size: 20px;
   color: #EC19C0; /* Pink color for the result text */
@@ -131,7 +121,7 @@ hr {
   margin-top: 10px;
 }
 
-/* Result details with emoji */
+/* Appliance result details */
 .result-details {
   display: flex;
   justify-content: space-between;
@@ -152,3 +142,16 @@ hr {
   margin-right: 8px;
   width: 20px; /* Icon size */
 }
+
+/* Total results section (weekly, yearly totals) */
+.total-results {
+  font-size: 18px;
+  font-weight: bold;
+  color: #EC19C0; /* Pink color for totals */
+  margin-top: 20px;
+}
+
+.total-results .total {
+  margin-top: 5px;
+}
+
