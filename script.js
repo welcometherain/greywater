@@ -56,3 +56,9 @@ document.getElementById('greywater-form').addEventListener('submit', function (e
   document.getElementById('result').innerHTML = output;
   document.getElementById('assumptions').innerHTML = assumptions;
 });
+// Toggle Advanced Settings
+document.getElementById('toggle-advanced').addEventListener('click', function () {
+  const advancedSection = document.getElementById('advanced-settings');
+  const isVisible = advancedSection.style.display === 'block';
+  advancedSection.style.display = isVisible ? 'none' : 'block';
+});
