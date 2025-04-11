@@ -37,5 +37,22 @@ document.getElementById('greywater-form').addEventListener('submit', function (e
     <div class="total-output">Total Weekly: ${format(totalWeekly)} gallons<br>Total Yearly: ${format(totalYearly)} gallons</div>
   `;
 
+  const assumptions = `
+    <div class="output-card" style="margin-top: 1.5rem;">
+      <h3>Current Assumptions</h3>
+      <ul class="output-list">
+        <li><strong>Shower Flow Rate:</strong> ${showerFlow} gallons/minute</li>
+        <li><strong>Laundry per Load:</strong> ${laundryUsage} gallons</li>
+        <li><strong>Bath per Use:</strong> ${bathUsage} gallons</li>
+        <li><strong>Bathroom Sink:</strong> ${bathroomSinkUsage} gallons/person/day</li>
+        <li><strong>Kitchen Sink:</strong> ${kitchenSinkUsage} gallons/person/day</li>
+      </ul>
+      <p style="font-size: 0.95rem; margin-top: 0.5rem; color: #6b5c4c;">
+        You can change these values in the "Customize Water Flow Rates" section above.
+      </p>
+    </div>
+  `;
+
   document.getElementById('result').innerHTML = output;
+  document.getElementById('assumptions').innerHTML = assumptions;
 });
