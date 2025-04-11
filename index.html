@@ -1,120 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Calculate your household's greywater production from daily activities like showers, laundry, and sinks"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate your household's greywater production from daily activities like showers, laundry, and sinks">
   <title>Greywater Calculator | The Permaculture Lab</title>
-  <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      .container, .container * {
-        visibility: visible;
-      }
-      .print-button, .print-button * {
-        display: none !important;
-      }
-    }
-
-    .print-button {
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-
-    .print-button button {
-      background-color: var(--primary-color, #EC19C0);
-      color: white;
-      padding: 0.5rem 1.2rem;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-      transition: background 0.3s ease;
-    }
-
-    .print-button button:hover {
-      background-color: #c7159d;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/welcometherain/assets/main/perm%20lab%20brown2.png" alt="Perm Lab Logo" />
+      <img src="https://raw.githubusercontent.com/welcometherain/assets/main/perm%20lab%20brown2.png" alt="Perm Lab Logo">
     </div>
     <h1>Greywater Calculator</h1>
-
+    
     <p class="intro">
       Calculate how much potentially reusable greywater your household produces. Greywater comes from sinks, showers, and washing machines, 
       and can be used for irrigation and other non-potable purposes.
     </p>
-
+    
     <form id="greywater-form">
       <div class="form-group">
         <label for="people">Number of people in household:<span class="required">*</span></label>
-        <input type="number" id="people" placeholder="e.g. 4" min="1" required aria-required="true" />
+        <input type="number" id="people" placeholder="e.g. 4" min="1" required aria-required="true">
       </div>
 
       <div class="form-group">
         <label for="showers">Showers per person per week:<span class="required">*</span></label>
-        <input type="number" id="showers" placeholder="e.g. 7" min="0" required aria-required="true" />
+        <input type="number" id="showers" placeholder="e.g. 7" min="0" required aria-required="true">
       </div>
 
       <div class="form-group">
         <label for="shower-minutes">Average shower length (minutes):<span class="required">*</span></label>
-        <input type="number" id="shower-minutes" placeholder="e.g. 7" min="0" required aria-required="true" />
+        <input type="number" id="shower-minutes" placeholder="e.g. 7" min="0" required aria-required="true">
       </div>
 
       <div class="form-group">
         <label for="washing">Loads of laundry per week:<span class="required">*</span></label>
-        <input type="number" id="washing" placeholder="e.g. 5" min="0" required aria-required="true" />
+        <input type="number" id="washing" placeholder="e.g. 5" min="0" required aria-required="true">
       </div>
 
       <div class="form-group">
         <label for="baths">Baths per week:<span class="required">*</span></label>
-        <input type="number" id="baths" placeholder="e.g. 2" min="0" required aria-required="true" />
+        <input type="number" id="baths" placeholder="e.g. 2" min="0" required aria-required="true">
       </div>
-
+      
       <div class="advanced-toggle">
         <button type="button" id="toggle-advanced">Customize Water Flow Rates</button>
       </div>
-
+      
       <div class="advanced-settings" id="advanced-settings">
         <h3>Customize Water Usage Assumptions</h3>
         <p class="advanced-info">You can adjust these values to match your specific fixtures and appliances.</p>
-
+        
         <div class="form-group">
           <label for="shower-flow">Shower Flow Rate (gallons per minute):</label>
-          <input type="number" id="shower-flow" value="2.1" step="0.1" min="0.5" />
+          <input type="number" id="shower-flow" value="2.1" step="0.1" min="0.5">
           <span class="info-text">Standard showers: 2.1, Low-flow: 1.5, High-flow: 3.0</span>
         </div>
-
+        
         <div class="form-group">
           <label for="laundry-usage">Laundry Water per Load (gallons):</label>
-          <input type="number" id="laundry-usage" value="25" min="10" />
+          <input type="number" id="laundry-usage" value="25" min="10">
           <span class="info-text">Energy efficient: 15-25, Standard: 25-40</span>
         </div>
-
+        
         <div class="form-group">
           <label for="bath-usage">Bath Water per Bath (gallons):</label>
-          <input type="number" id="bath-usage" value="40" min="10" />
+          <input type="number" id="bath-usage" value="40" min="10">
           <span class="info-text">Partial fill: 20-30, Full bath: 35-50</span>
         </div>
-
+        
         <div class="form-group">
           <label for="bathroom-sink-usage">Bathroom Sink (gallons per person per day):</label>
-          <input type="number" id="bathroom-sink-usage" value="2.5" step="0.5" min="0.5" />
+          <input type="number" id="bathroom-sink-usage" value="2.5" step="0.5" min="0.5">
           <span class="info-text">Low usage: 1-2, Average: 2-3, High usage: 3-5</span>
         </div>
-
+        
         <div class="form-group">
           <label for="kitchen-sink-usage">Kitchen Sink (gallons per person per day):</label>
-          <input type="number" id="kitchen-sink-usage" value="5" step="0.5" min="1" />
+          <input type="number" id="kitchen-sink-usage" value="5" step="0.5" min="1">
           <span class="info-text">Low usage: 3-4, Average: 5-7, High usage: 8-10</span>
         </div>
       </div>
@@ -122,20 +87,17 @@
       <button type="submit">Calculate</button>
     </form>
 
-    <!-- ✅ Print button added here -->
-    <div class="print-button">
-      <button onclick="window.print()">🖨️ Print This Page</button>
-    </div>
-
     <div class="result" id="result"></div>
     <div class="assumptions" id="assumptions"></div>
-
+    
     <div class="greywater-info">
       <h2>About Greywater</h2>
       <p>
-        Greywater is gently used water from your bathroom sinks, showers, tubs, and washing machines. It's not water that has come into contact with toilets (blackwater) or dishwashers (chemical issues).
+       Greywater is gently used water from your bathroom sinks, showers, tubs, and washing machines. It's not water that has come into contact with toilets (blackwater) or dishwashers (chemical issues).
       </p>
-      <p><strong>Benefits of reusing greywater:</strong></p>
+      <p>
+        <strong>Benefits of reusing greywater:</strong>
+      </p>
       <ul>
         <li>Reduces potable water use by 30-50%</li>
         <li>Decreases strain on septic tanks and treatment plants</li>
@@ -144,17 +106,19 @@
         <li>Helps to recharge groundwater</li>
       </ul>
     </div>
-
+    
     <div class="note">
-      💡 This calculator provides estimates for typical greywater-generating sources. Not all of these sources may be legal to use where you are living.
+      💡 This calculator provides estimates for typical greywater-generating sources. Not all of these sources may be legal to use where you are living.</a>
     </div>
-
+    
     <div class="footer">
       🔗 <a href="https://www.thepermaculturelab.com/greywater" target="_blank">Back to the Permaculture Lab</a>
     </div>
+    
+    <!-- Print button -->
+    <button class="print-button" onclick="window.print()" aria-label="Print this page">🖨️</button>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
