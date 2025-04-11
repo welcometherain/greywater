@@ -27,8 +27,14 @@ document.getElementById("greywater-form").addEventListener("submit", function (e
   document.getElementById("result").innerHTML = `
     <div class="output-box">
       <h2>Estimated Greywater Output</h2>
-      <p><strong>Weekly Total:</strong> ${weeklyTotal.toFixed(1)} gallons</p>
-      <p><strong>Yearly Total:</strong> ${yearlyTotal.toFixed(1)} gallons</p>
+      <p><strong>Showers:</strong> ${showerTotal.toFixed(1)} gallons/week</p>
+      <p><strong>Laundry:</strong> ${laundryTotal.toFixed(1)} gallons/week</p>
+      <p><strong>Baths:</strong> ${bathTotal.toFixed(1)} gallons/week</p>
+      <p><strong>Bathroom Sinks:</strong> ${bathroomSinkTotal.toFixed(1)} gallons/week</p>
+      <p><strong>Kitchen Sinks:</strong> ${kitchenSinkTotal.toFixed(1)} gallons/week</p>
+      <hr>
+      <p><strong>Total Weekly:</strong> ${weeklyTotal.toFixed(1)} gallons</p>
+      <p><strong>Total Yearly:</strong> ${yearlyTotal.toFixed(1)} gallons</p>
     </div>
   `;
 
@@ -48,3 +54,4 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = "Customize Water Flow Rates";
   }
 });
+
