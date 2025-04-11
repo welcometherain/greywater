@@ -15,26 +15,32 @@ document.getElementById("greywater-form").addEventListener("submit", function (e
   const bathroomSinkUsage = parseFloat(document.getElementById("bathroom-sink-usage").value);
   const kitchenSinkUsage = parseFloat(document.getElementById("kitchen-sink-usage").value);
 
-  const showerTotal = people * showers * showerMinutes * showerFlow;
-  const laundryTotal = washing * laundryUsage;
-  const bathTotal = baths * bathUsage;
-  const bathroomSinkTotal = people * bathroomSinkUsage * 7;
-  const kitchenSinkTotal = people * kitchenSinkUsage * 7;
+  const showerWeekly = people * showers * showerMinutes * showerFlow;
+  const laundryWeekly = washing * laundryUsage;
+  const bathWeekly = baths * bathUsage;
+  const bathroomSinkWeekly = people * bathroomSinkUsage * 7;
+  const kitchenSinkWeekly = people * kitchenSinkUsage * 7;
 
-  const weeklyTotal = showerTotal + laundryTotal + bathTotal + bathroomSinkTotal + kitchenSinkTotal;
+  const showerYearly = showerWeekly * 52;
+  const laundryYearly = laundryWeekly * 52;
+  const bathYearly = bathWeekly * 52;
+  const bathroomSinkYearly = bathroomSinkWeekly * 52;
+  const kitchenSinkYearly = kitchenSinkWeekly * 52;
+
+  const weeklyTotal = showerWeekly + laundryWeekly + bathWeekly + bathroomSinkWeekly + kitchenSinkWeekly;
   const yearlyTotal = weeklyTotal * 52;
 
   document.getElementById("result").innerHTML = `
     <div class="output-box">
       <h2>Estimated Greywater Output</h2>
-      <p><strong>Showers:</strong> ${showerTotal.toFixed(1)} gallons/week</p>
-      <p><strong>Laundry:</strong> ${laundryTotal.toFixed(1)} gallons/week</p>
-      <p><strong>Baths:</strong> ${bathTotal.toFixed(1)} gallons/week</p>
-      <p><strong>Bathroom Sinks:</strong> ${bathroomSinkTotal.toFixed(1)} gallons/week</p>
-      <p><strong>Kitchen Sinks:</strong> ${kitchenSinkTotal.toFixed(1)} gallons/week</p>
+      <p><strong>Showers:</strong> ${showerWeekly.toFixed(1)} gallons/week | ${showerYearly.toFixed(1)} gallons/year</p>
+      <p><strong>Laundry:</strong> ${laundryWeekly.toFixed(1)} gallons/week | ${laundryYearly.toFixed(1)} gallons/year</p>
+      <p><strong>Baths:</strong> ${bathWeekly.toFixed(1)} gallons/week | ${bathYearly.toFixed(1)} gallons/year</p>
+      <p><strong>Bathroom Sinks:</strong> ${bathroomSinkWeekly.toFixed(1)} gallons/week | ${bathroomSinkYearly.toFixed(1)} gallons/year</p>
+      <p><strong>Kitchen Sinks:</strong> ${kitchenSinkWeekly.toFixed(1)} gallons/week | ${kitchenSinkYearly.toFixed(1)} gallons/year</p>
       <hr>
-      <p><strong>Total Weekly:</strong> ${weeklyTotal.toFixed(1)} gallons</p>
-      <p><strong>Total Yearly:</strong> ${yearlyTotal.toFixed(1)} gallons</p>
+      <p style="color: #EC19C0;"><strong>Total Weekly:</strong> ${weeklyTotal.toFixed(1)} gallons</p>
+      <p style="color: #EC19C0;"><strong>Total Yearly:</strong> ${yearlyTotal.toFixed(1)} gallons</p>
     </div>
   `;
 
@@ -54,4 +60,3 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = "Customize Water Flow Rates";
   }
 });
-
