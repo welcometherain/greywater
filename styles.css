@@ -379,22 +379,41 @@ button:hover, button:focus {
   }
 }
 .print-button {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.print-button button {
-  background-color: var(--primary-color, #EC19C0);
-  color: white;
-  padding: 0.5rem 1.2rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
   border: none;
-  border-radius: 12px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
+  color: var(--primary-color, #EC19C0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.print-button button:hover {
-  background-color: #c7159d;
+.print-button:hover {
+  color: #5c4326;
+  transform: scale(1.1);
 }
+
+.print-button:focus {
+  outline: none;
+}
+
+.print-button::after {
+  content: "Print this page";
+  position: absolute;
+  bottom: 30px;
+  left: -5px;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  display: none;
+}
+
+.print-button:hover::after {
+  display: block;
+}
+
