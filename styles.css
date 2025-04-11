@@ -1,7 +1,7 @@
-/* Base styles for the layout */
+/* Base Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #e1eff5; /* Restoring the light blue background color */
+  background-color: #e1eff5; /* Soft light blue background */
   color: #333;
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@ h1, h2 {
   color: #555;
 }
 
-/* Button Styling */
+/* Buttons */
 button {
   padding: 1rem 2rem;
   border-radius: 6px;
@@ -32,16 +32,16 @@ button {
   font-size: 1.1rem;
   display: block;
   width: 100%;
-  max-width: 400px; /* Max width for buttons */
-  margin: 1rem auto; /* Centers the button */
+  max-width: 400px;
+  margin: 1rem auto;
 }
 
-/* The "Calculate" button */
+/* The "Calculate" button (Pink) */
 button#calculate {
-  background-color: #ec1c9c; /* Pink for the "Calculate" button */
+  background-color: #ec1c9c;
   color: white;
   font-size: 1.3rem; /* Larger font */
-  padding: 1.5rem 3rem; /* Larger padding for more prominence */
+  padding: 1.5rem 3rem;
   text-align: center;
 }
 
@@ -49,9 +49,9 @@ button#calculate:hover {
   background-color: #d0167d;
 }
 
-/* The "Customize Water Flow Rates" button */
+/* The "Customize Water Flow Rates" button (Brown) */
 #toggle-advanced {
-  background-color: #4a3c2f; /* Brown for the toggle button */
+  background-color: #4a3c2f;
   color: white;
   font-size: 1.1rem;
   padding: 1rem 2rem;
@@ -61,25 +61,26 @@ button#calculate:hover {
   background-color: #3d2b22;
 }
 
-/* Form fields */
+/* Form Elements */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
   font-weight: bold;
+  color: #333;
 }
 
 input[type="number"] {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
 }
 
-/* Advanced settings section */
+/* Advanced Settings Section */
 .advanced-toggle {
   margin-top: 1rem;
 }
@@ -94,19 +95,10 @@ input[type="number"] {
 }
 
 .advanced-settings .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.advanced-settings input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-/* Output Card */
+/* Output Cards */
 .output-card {
   background: #fff;
   border-radius: 8px;
@@ -188,12 +180,12 @@ input[type="number"] {
   text-decoration: underline;
 }
 
-/* Styling for required field asterisks */
+/* Required Field Asterisks */
 .required {
-  color: #ec1c9c; /* Pink for the required asterisks */
+  color: #ec1c9c;
 }
 
-/* Responsive adjustments */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .container {
     width: 100%;
