@@ -1,77 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calculate your household's greywater production from daily activities like showers, laundry, and sinks">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculate your household's greywater production from daily activities like showers, laundry, and sinks" />
   <title>Greywater Calculator | The Permaculture Lab</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Custom CSS styles for output and toggle button */
-    .output-card {
-      background: #f9f8f6;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-top: 2rem;
-    }
-
-    .output-list {
-      list-style: none;
-      padding: 0;
-      font-size: 1.1rem;
-      color: #4a3c2f;
-      line-height: 1.6;
-    }
-
-    .output-list li {
-      margin-bottom: 0.5rem;
-    }
-
-    .total-output {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-top: 1rem;
-      color: #ec1c9c;
-    }
-
-    /* Styling for the toggle button */
-    #toggle-advanced {
-      background-color: #ec1c9c;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      border: none;
-    }
-
-    /* Default style for the advanced settings section */
-    .advanced-settings {
-      display: none;
-      margin-top: 1rem;
-    }
-
-    .advanced-settings.open {
-      display: block;
-    }
-
-    .info-text {
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/welcometherain/assets/main/perm%20lab%20brown2.png" alt="Perm Lab Logo">
+      <img src="https://raw.githubusercontent.com/welcometherain/assets/main/perm%20lab%20brown2.png" alt="Perm Lab Logo" />
     </div>
     <h1>Greywater Calculator</h1>
-
+    
     <p class="intro">
-      Discover how much reusable greywater your household produces from sinks, showers, and washing machines, offering a valuable resource for irrigation and other non-potable needs.
+     Discover how much reusable greywater your household produces from sinks, showers, and washing machines, offering a valuable resource for irrigation and other non-potable needs.
     </p>
-
+    
     <form id="greywater-form">
       <div class="form-group">
         <label for="people">Number of people in household:<span class="required">*</span></label>
@@ -97,39 +43,39 @@
         <label for="baths">Baths per week:<span class="required">*</span></label>
         <input type="number" id="baths" placeholder="e.g. 2" min="0" required aria-required="true">
       </div>
-
+      
       <div class="advanced-toggle">
         <button type="button" id="toggle-advanced">Customize Water Flow Rates</button>
       </div>
-
+      
       <div class="advanced-settings" id="advanced-settings">
         <h3>Customize Water Usage Assumptions</h3>
         <p class="advanced-info">You can adjust these values to match your specific fixtures and appliances.</p>
-
+        
         <div class="form-group">
           <label for="shower-flow">Shower Flow Rate (gallons per minute):</label>
           <input type="number" id="shower-flow" value="2.1" step="0.1" min="0.5">
           <span class="info-text">Standard showers: 2.1, Low-flow: 1.5, High-flow: 3.0</span>
         </div>
-
+        
         <div class="form-group">
           <label for="laundry-usage">Laundry Water per Load (gallons):</label>
           <input type="number" id="laundry-usage" value="25" min="10">
           <span class="info-text">Energy efficient: 15-25, Standard: 25-40</span>
         </div>
-
+        
         <div class="form-group">
           <label for="bath-usage">Bath Water per Bath (gallons):</label>
           <input type="number" id="bath-usage" value="40" min="10">
           <span class="info-text">Partial fill: 20-30, Full bath: 35-50</span>
         </div>
-
+        
         <div class="form-group">
           <label for="bathroom-sink-usage">Bathroom Sink (gallons per person per day):</label>
           <input type="number" id="bathroom-sink-usage" value="2.5" step="0.5" min="0.5">
           <span class="info-text">Low usage: 1-2, Average: 2-3, High usage: 3-5</span>
         </div>
-
+        
         <div class="form-group">
           <label for="kitchen-sink-usage">Kitchen Sink (gallons per person per day):</label>
           <input type="number" id="kitchen-sink-usage" value="5" step="0.5" min="1">
@@ -140,9 +86,16 @@
       <button type="submit">Calculate</button>
     </form>
 
-    <div class="output-card" id="result"></div>
-    <div class="assumptions" id="assumptions"></div>
+    <div class="result" id="result">
+      <div class="result-card">
+        <h2>Weekly Greywater Output</h2>
+        <p id="total-output"></p>
+        <div id="breakdown-list"></div>
+      </div>
+    </div>
 
+    <div class="assumptions" id="assumptions"></div>
+    
     <div class="greywater-info">
       <h2>About Greywater</h2>
       <p>
@@ -160,11 +113,11 @@
         <li>Helps to recharge groundwater</li>
       </ul>
     </div>
-
+    
     <div class="note">
-      💡 This calculator provides estimates for typical greywater-generating sources. Not all might of these sources may be legal to use where you are living. </a>.
+      💡 This calculator provides estimates for typical greywater-generating sources. Not all of these sources may be legal to use where you are living.
     </div>
-
+    
     <div class="footer">
       🔗 <a href="https://www.thepermaculturelab.com/greywater" target="_blank">Back to the Permaculture Lab</a>
     </div>
