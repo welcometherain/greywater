@@ -5,6 +5,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  background-color: #e1eff5; /* Restoring the background blue color */
 }
 
 .container {
@@ -41,36 +42,49 @@ input[type="number"] {
 }
 
 button {
-  background-color: #ec1c9c;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+  display: block;
+  margin: 0 auto;
+  width: 100%; /* Makes the button take full width */
+}
+
+/* Customize the "Calculate" button */
+button#calculate {
+  background-color: #ec1c9c; /* Pink for the "Calculate" button */
+  color: white;
+  font-size: 1.3rem; /* Larger font */
+  padding: 1.5rem 3rem; /* Larger padding for more prominence */
+}
+
+button#calculate:hover {
+  background-color: #d0167d;
+}
+
+/* Customize the "Customize Water Flow Rates" button */
+#toggle-advanced {
+  background-color: #4a3c2f; /* Brown for the toggle button */
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
   border: none;
   font-size: 1rem;
+  display: block;
+  margin: 0 auto;
+  width: auto; /* Button width to fit content */
 }
 
-button:hover {
-  background-color: #d0167d;
+#toggle-advanced:hover {
+  background-color: #3d2b22;
 }
 
 /* Advanced settings toggle button */
 .advanced-toggle {
   margin-top: 1rem;
-}
-
-#toggle-advanced {
-  background-color: #ec1c9c;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-}
-
-#toggle-advanced:hover {
-  background-color: #d0167d;
 }
 
 /* Styling for the advanced settings section */
@@ -198,4 +212,9 @@ button:hover {
     width: 100%;
     font-size: 1.1rem;
   }
+}
+
+/* Styling for required field asterisks (back to pink) */
+.required {
+  color: #ec1c9c; /* Restoring pink for the required asterisks */
 }
