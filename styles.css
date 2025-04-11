@@ -219,7 +219,7 @@ button:hover, button:focus {
   display: none;
   margin: var(--spacing-md) 0 var(--spacing-lg);
   padding: var(--spacing-md) var(--spacing-lg);
-  background-color: var(--secondary-bg);
+  background-color: #e8f4fc;
   border-radius: var(--radius-sm);
   border: 1px solid #d1e3ff;
 }
@@ -322,4 +322,3 @@ button:hover, button:focus {
     max-width: 120px;
   }
 }
-
