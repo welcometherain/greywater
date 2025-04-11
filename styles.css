@@ -1,152 +1,201 @@
+/* Base styles for the layout */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fffefc;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
   color: #333;
   margin: 0;
   padding: 0;
 }
 
 .container {
-  max-width: 800px;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
 }
 
-.logo img {
-  max-width: 200px;
-  display: block;
-  margin: 0 auto 1.5rem;
-}
-
-h1 {
-  text-align: center;
-  color: #4a3c2f;
+h1, h2 {
+  color: #333;
 }
 
 .intro {
-  text-align: center;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-form {
-  background-color: #f7f3ed;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 1.2rem;
+  color: #555;
 }
 
 .form-group {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 label {
-  display: block;
   font-weight: bold;
-  margin-bottom: 0.3rem;
-  color: #444;
 }
 
-input[type=number] {
+input[type="number"] {
   width: 100%;
-  padding: 0.5rem;
+  padding: 8px;
+  margin-top: 5px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 1rem;
 }
 
-button[type=submit], .advanced-toggle button {
-  display: inline-block;
-  margin-top: 1rem;
+button {
+  background-color: #ec1c9c;
+  color: white;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #4a3c2f;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  border: none;
+  font-size: 1rem;
 }
 
 button:hover {
-  background-color: #7d654e;
+  background-color: #d0167d;
 }
 
+/* Advanced settings toggle button */
 .advanced-toggle {
-  text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
-.advanced-info, .info-text {
-  font-size: 0.85rem;
-  color: #777;
-  margin-top: 0.25rem;
+#toggle-advanced {
+  background-color: #ec1c9c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
 }
 
-.greywater-info {
-  background: #faf7f2;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 2rem;
+#toggle-advanced:hover {
+  background-color: #d0167d;
 }
 
-.greywater-info h2 {
-  margin-top: 0;
-  color: #5e4937;
-}
-
-.note {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  background: #fff8dc;
-  padding: 1rem;
-  border-left: 5px solid #ffd700;
-}
-
-.footer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.footer a {
-  text-decoration: none;
-  color: #4a3c2f;
-  font-weight: bold;
-}
-
-.required {
-  color: red;
-  margin-left: 4px;
-}
-/* Add to your existing styles.css file */
-
+/* Styling for the advanced settings section */
 .advanced-settings {
+  margin-top: 1rem;
   display: none;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
-  max-height: 0;
 }
 
 .advanced-settings.open {
   display: block;
-  max-height: 1000px; /* Set a large value to allow content expansion */
 }
 
-.advanced-toggle button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
+.advanced-settings .form-group {
+  margin-bottom: 1rem;
+}
+
+/* Styling for the input fields in advanced settings */
+.advanced-settings input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   font-size: 1rem;
-  background-color: #4a3c2f;
-  color: #fff;
-  border: none;
+}
+
+/* Styling for the output card */
+.output-card {
+  background: #fff;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
-.advanced-toggle button:hover {
-  background-color: #7d654e;
+.output-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+  color: #4a3c2f;
+  line-height: 1.6;
 }
 
+.output-list li {
+  margin-bottom: 0.5rem;
+}
+
+.total-output {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #ec1c9c;
+}
+
+/* Styling for the assumptions section */
+.assumptions {
+  background: #f9f8f6;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.assumptions h3 {
+  color: #333;
+}
+
+.assumptions ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.assumptions ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer and other content */
+.note {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.note a {
+  color: #ec1c9c;
+  text-decoration: none;
+}
+
+.note a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 30px;
+}
+
+.footer a {
+  color: #ec1c9c;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
