@@ -1,9 +1,8 @@
-/* styles.css */
-
+/* General body styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #0A2342; /* dark blue background */
+  background-color: #0A2342; /* Dark blue background */
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -11,84 +10,82 @@ body {
   min-height: 100vh;
 }
 
+/* Container where the form and output are */
 .container {
-  background-color: #fdf5e6; /* light tan background */
+  background-color: #fdf5e6; /* Light tan background */
   color: #000;
   padding: 20px;
   border-radius: 10px;
   margin: 20px;
   width: 90%;
   max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.logo img {
-  max-width: 200px;
-  display: block;
-  margin: 0 auto 20px;
-}
-
+/* Centered title */
 h1, h2 {
   text-align: center;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
+/* Form label styling */
 form label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
 
+/* Input fields styling */
 input[type="number"] {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fdf5e6; /* light tan input background */
-  color: #000;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #EC19C0;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #c017a5;
-}
-
-.output-box {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #fff0e6; /* soft tan background for output */
-  border-radius: 8px;
+  background-color: #fdf5e6; /* Light tan background */
   color: #000;
   font-size: 16px;
 }
 
-.output-detail {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+input[type="number"]:focus {
+  border-color: #EC19C0; /* Highlight border color */
+  outline: none;
 }
 
-.output-detail span {
-  font-weight: bold;
+/* Button styling */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #EC19C0; /* Pink button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.total-output {
-  color: #EC19C0;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 15px;
+button:hover {
+  background-color: #c017a5; /* Hover effect */
 }
 
+/* Results box styling */
+.output-box {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff0e6; /* Soft tan background for output */
+  border-radius: 8px;
+  color: #000;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.output-box h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Divider line */
 hr {
   border: none;
   height: 1px;
@@ -96,6 +93,7 @@ hr {
   margin: 20px 0;
 }
 
+/* Toggle for advanced settings */
 #toggle-advanced {
   background: none;
   color: #000;
@@ -106,36 +104,51 @@ hr {
   display: block;
 }
 
+/* Advanced settings area */
 .advanced-settings {
-  display: none;
+  background-color: #fff8e1; /* Soft yellow background for advanced settings */
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.advanced-settings h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.advanced-settings label {
+  display: block;
   margin-top: 10px;
-  background-color: #f9efe1;
-  padding: 10px;
-  border-radius: 6px;
 }
 
-.info-text {
-  font-size: 12px;
-  color: #555;
-}
-
-.intro {
+/* Result section with commas and emoji */
+.result-text {
+  font-size: 20px;
+  color: #EC19C0; /* Pink color for the result text */
+  font-weight: bold;
   text-align: center;
+  margin-top: 10px;
+}
+
+/* Result details with emoji */
+.result-details {
+  display: flex;
+  justify-content: space-between;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
-.footer {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 14px;
+.result-details span {
+  font-weight: bold;
 }
 
-.footer a {
-  color: #EC19C0;
-  text-decoration: none;
+.result-details .appliance {
+  display: flex;
+  align-items: center;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.result-details .appliance img {
+  margin-right: 8px;
+  width: 20px; /* Icon size */
 }
