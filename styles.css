@@ -322,3 +322,59 @@ button:hover, button:focus {
     max-width: 120px;
   }
 }
+.print-header {
+  display: none;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.print-header img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.print-header a {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .container {
+    box-shadow: none;
+    background: white;
+    padding: 0;
+  }
+
+  .print-button,
+  .advanced-toggle,
+  .advanced-settings,
+  .footer,
+  .note,
+  .greywater-info,
+  .logo {
+    display: none;
+  }
+
+  input,
+  button {
+    display: none;
+  }
+
+  .result {
+    font-size: 1.2rem;
+    color: black;
+    background: none;
+    border-left: none;
+  }
+
+  .print-header {
+    display: block;
+  }
+}
