@@ -13,7 +13,7 @@ body {
 
 /* Container styling for the form and results */
 .container {
-  background-color: #fdf5e6; /* Light tan background */
+  background-color: #fdf5e6 !important; /* Light tan background with !important to override other styles */
   color: #000;
   padding: 20px;
   border-radius: 10px;
@@ -51,7 +51,7 @@ input[type="number"] {
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fdf5e6; /* Light tan background */
+  background-color: #fdf5e6 !important; /* Light tan background */
   color: #000;
   font-size: 16px;
 }
@@ -84,7 +84,7 @@ button:hover {
 .output-box {
   margin-top: 20px;
   padding: 20px;
-  background-color: #fff0e6; /* Soft tan background for output */
+  background-color: #fff0e6 !important; /* Soft tan background for output */
   border-radius: 8px;
   color: #000;
   font-size: 16px;
@@ -112,7 +112,7 @@ hr {
 
 /* Advanced settings styling */
 .advanced-settings {
-  background-color: #fff8e1; /* Soft yellow background for advanced settings */
+  background-color: #fff8e1 !important; /* Soft yellow background for advanced settings */
   padding: 20px;
   border-radius: 8px;
   margin-top: 15px;
