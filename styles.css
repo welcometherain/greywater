@@ -378,3 +378,23 @@ button:hover, button:focus {
     display: block;
   }
 }
+.print-button {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.print-button button {
+  background-color: var(--primary-color, #EC19C0);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.print-button button:hover {
+  background-color: #c7159d;
+}
